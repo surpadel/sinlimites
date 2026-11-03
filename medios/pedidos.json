@@ -22,5 +22,9 @@
  {
   "url": "https://elevenlabsusercontent.com/database/workspace/616874bc8ff04f49a33e0fd2b53295f7/content_generation/sSRkMhKfoeCELn8gwapu/WwkM6e1KHBBK0zg4RJ61/content.mp3?Expires=1793725200&KeyName=assets-cdn-key-1&Signature=zlnVqvGUhM0pY9HgKSzI2fw32nk=",
   "destino": "medios/voces/2026-11-admisiones-sol-v2.mp3"
+ },
+ {
+  "url": "https://elevenlabsusercontent.com/database/workspace/616874bc8ff04f49a33e0fd2b53295f7/content_generation/1vS4gSO4V5HN7JmCkQfa/AVwWTMOaWay6Am56IPLk/content.mp3?Expires=1793725200&KeyName=assets-cdn-key-1&Signature=FNicKg_DY-72fVHTQzJK_wwWYyM=",
+  "destino": "medios/voces/2026-11-admisiones-martina-muestra.mp3"
  }
 ]
