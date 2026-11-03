@@ -65,11 +65,9 @@ flyer = Image.open(os.path.join(BANCO, "flyer-admisiones-2027.png")).convert("RG
 s = max(W / flyer.width, H / flyer.height) * 1.15
 bgf = flyer.resize((int(flyer.width * s), int(flyer.height * s)), Image.LANCZOS).filter(ImageFilter.GaussianBlur(45))
 bgf = Image.blend(bgf, Image.new("RGB", bgf.size, (252, 247, 242)), 0.5)
-logo = flyer.crop((160, 22, 560, 172))  # "Sin Límites / Espacio Interdisciplinario"
-logo = logo.resize((logo.width * 2, logo.height * 2), Image.LANCZOS).filter(ImageFilter.UnsharpMask(2, 70, 2))
-# recorte suave del logo sobre su fondo
-lm = Image.new("L", logo.size, 0); ImageDraw.Draw(lm).rounded_rectangle((0, 0, logo.width, logo.height), 60, fill=255)
-lm = lm.filter(ImageFilter.GaussianBlur(18))
+# logo vectorizado (medios/marca), ancho 860 px en pantalla
+logo = Image.open(os.path.join(ROOT, "medios", "marca", "sin-limites-logo-acuarela.png")).convert("RGBA")
+logo = logo.resize((860, int(logo.height * 860 / logo.width)), Image.LANCZOS)
 rng = np.random.default_rng(7)
 CORAZONES = [(rng.uniform(60, W - 60), rng.uniform(0, H), rng.uniform(16, 34), rng.uniform(40, 90), PASTELES[i % 6]) for i in range(26)]
 
@@ -157,8 +155,8 @@ def cierre(img, t):
     a, b = ent(0.2)
     if a:
         lg = logo.resize((int(logo.width * (0.85 + 0.15 * b)), int(logo.height * (0.85 + 0.15 * b))), Image.LANCZOS).convert("RGBA")
-        m = lm.resize(lg.size).point(lambda v: int(v * a)); lg.putalpha(m)
-        img.alpha_composite(lg, (int(W / 2 - lg.width / 2), int(330 - lg.height / 2)))
+        lg.putalpha(lg.getchannel("A").point(lambda v: int(v * a)))
+        img.alpha_composite(lg, (int(W / 2 - lg.width / 2), int(340 - lg.height / 2)))
     a, b = ent(0.5)   # voz: "Admisiones 2027 abiertas"
     texto_con_borde(img, "Admisiones 2027", font(FB, 92), W / 2, 580, NAVY, a, 0.85 + 0.15 * b)
     a, b = ent(1.8)   # voz: "acá en Berazategui"
@@ -200,7 +198,7 @@ def render(times, sink):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "tira":
-        marcas = [1.6, 6.0, 12.5, 16.0, 19.0, 21.5, 23.5, 26.5]
+        marcas = [21.5, 26.5]
         frames = []
         allt = [i / FPS for i in range(int(max(marcas) * FPS) + 1)]
         want = {int(round(m * FPS)) for m in marcas}
