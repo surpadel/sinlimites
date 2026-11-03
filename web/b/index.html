@@ -46,7 +46,10 @@ p{margin:0}
 /* Barra */
 .barra{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--turq);border-bottom:2px solid var(--tinta)}
 .barra .env{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:10px}
-.barra img{height:42px;width:auto}
+.logo-barra{display:block;background:var(--papel);border:2px solid var(--tinta);border-radius:12px;padding:2px 8px;box-shadow:3px 3px 0 var(--tinta)}
+.barra img{height:40px;width:auto}
+.logo-hero{justify-self:start;background:var(--papel);border:2px solid var(--tinta);border-radius:20px;padding:10px 14px;box-shadow:6px 6px 0 var(--tinta);transform:rotate(-2deg);width:min(100%,380px)}
+.logo-hero img{width:100%;height:auto;aspect-ratio:1000/485}
 .barra nav{display:flex;gap:22px;align-items:center;font-weight:700}
 .barra nav a{text-decoration:none}
 .barra nav a:not(.btn):hover{text-decoration:underline;text-underline-offset:4px}
@@ -182,7 +185,7 @@ footer .env{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;p
 
 <header class="barra">
   <div class="env">
-    <a href="#inicio" aria-label="Sin Límites, inicio"><img src="../img/logo-tinta.webp" width="900" height="364" alt="Sin Límites · Espacio Interdisciplinario"></a>
+    <a class="logo-barra" href="#inicio" aria-label="Sin Límites, inicio"><img src="../img/logo.webp" width="1000" height="485" alt="Sin Límites · Espacio Interdisciplinario"></a>
     <nav aria-label="Secciones">
       <a href="#por-donde-empezar">Por dónde empezar</a>
       <a href="#servicios">Servicios</a>
@@ -197,6 +200,7 @@ footer .env{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;p
   <section class="banda hero">
     <div class="env">
       <div class="hero-txt">
+        <div class="logo-hero"><img src="../img/logo.webp" width="1000" height="485" alt="Sin Límites · Espacio Interdisciplinario"></div>
         <span class="rotulo">Berazategui · niños y adolescentes</span>
         <h1>Cada avance <span class="marcado">cuenta.</span></h1>
         <p class="bajada">Psicología, fonoaudiología, psicopedagogía y terapia ocupacional en un mismo equipo, que trabaja junto a la familia. Con CUD por obra social o en forma particular.</p>
@@ -373,6 +377,7 @@ document.querySelectorAll('[data-copiar]').forEach(function(b){
 
 if(window.gsap&&!quieto){
   gsap.from('.pz',{x:function(i){return i%2?60:-60},y:function(i){return (i<2?-40:i>3?40:0)},rotate:function(i){return [-8,6,-5,9,-7,5][i]},duration:.9,ease:'back.out(1.6)',stagger:.08,delay:.2});
+  gsap.from('.logo-hero',{rotate:-10,scale:.85,opacity:0,duration:.7,ease:'back.out(1.8)'});
   gsap.from('.hero h1 .marcado',{rotate:-14,scale:.8,duration:.8,ease:'elastic.out(1,.5)',delay:.7});
 }
 </script>
