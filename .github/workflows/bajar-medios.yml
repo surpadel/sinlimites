@@ -1,0 +1,64 @@
+name: Bajar medios
+
+# Baja a la carpeta medios/ los archivos que APIMart (videos) y ElevenLabs (voces)
+# dejan en dominios que el espacio de trabajo de Claude no puede alcanzar.
+# Uso: agregar {"url": "...", "destino": "medios/..."} a medios/pedidos.json y hacer push.
+
+on:
+  push:
+    paths:
+      - "medios/pedidos.json"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bajar-medios
+  cancel-in-progress: false
+
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bajar archivos pedidos
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import json, os, re, sys, urllib.request
+          from urllib.parse import urlparse
+
+          PERMITIDOS = ("getapib.org", "apimart.ai", "elevenlabsusercontent.com",
+                        "storage.googleapis.com")
+          EXT = (".mp4", ".mov", ".mp3", ".wav", ".m4a", ".png", ".jpg", ".jpeg", ".webp")
+
+          pedidos = json.load(open("medios/pedidos.json"))
+          pendientes = []
+          for p in pedidos:
+              url, destino = p["url"], os.path.normpath(p["destino"])
+              host = urlparse(url).hostname or ""
+              if not destino.startswith("medios/") or ".." in destino or not destino.lower().endswith(EXT):
+                  print("Destino rechazado:", destino); continue
+              if not any(host == d or host.endswith("." + d) for d in PERMITIDOS):
+                  print("Dominio no permitido:", host); continue
+              if os.path.exists(destino):
+                  print("Ya existe:", destino); continue
+              os.makedirs(os.path.dirname(destino), exist_ok=True)
+              try:
+                  req = urllib.request.Request(url, headers={"User-Agent": "sinlimites-bajar-medios"})
+                  with urllib.request.urlopen(req, timeout=120) as r, open(destino, "wb") as f:
+                      f.write(r.read())
+                  print("OK:", destino, os.path.getsize(destino), "bytes")
+              except Exception as e:
+                  print("Falló:", destino, e); pendientes.append(p)
+          PY
+
+      - name: Guardar en el repositorio
+        run: |
+          git config user.name "sinlimites-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add medios/
+          git diff --cached --quiet || git commit -m "Bajar medios pedidos"
+          git push
