@@ -10,8 +10,7 @@ Repositorio de trabajo del Instagram de [@sinlimitesterapias](https://www.instag
 Los MP4 finales se publican desde su URL pública de `raw.githubusercontent.com`.
 
 ## Marca
-`medios/marca/`: logo de Sin Límites vectorizado desde el flyer (SVG y PNG transparente de 2400 px).
-- `sin-limites-logo-acuarela.png` (principal): letras vectoriales sobre pincelada pastel generada con OpenAI desde el conector propio de Nico (`fuentes/pincelada-openai-2.png`; la -1 quedó descartada por pálida) y estrellitas; se arma con `componer-logo-acuarela.py`.
-- `-tinta` (letras azul noche) y `-blanco` (para fondos de color), en SVG y PNG.
-- `-acuarela-trazos.svg`: versión anterior con trazos dibujados por código (descartada por saturada).
-- `trazar-logo.py` regenera el trazado.
+`medios/marca/`: logo de Sin Límites (SVG y PNG transparente de ~2500 px).
+- `sin-limites-logo-acuarela` (principal): letras negras vectorizadas desde el logo de Instagram (`fuentes/logo-referencia-instagram.png`, script `trazar-logo-negro.py`), pincelada pastel generada con OpenAI desde el conector propio de Nico (`fuentes/pincelada-openai-3.png`) y piezas de rompecabezas sutiles. Se arma con `componer-logo-acuarela.py`.
+- `-tinta` (letras negras) y `-blanco` (para fondos de color).
+- Descartados: `-acuarela-trazos.svg` (saturado) y las pinceladas `-1` (pálida) y `-2` (demasiado prolija).
