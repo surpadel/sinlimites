@@ -11,11 +11,11 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 BANCO = os.path.join(ROOT, "medios", "banco")
-VOZ = os.path.join(ROOT, "medios", "voces", "2026-11-admisiones-sol-toma1.mp3")
+VOZ = os.path.join(ROOT, "medios", "voces", "2026-11-admisiones-sol-v2.mp3")
 OUT = os.path.join(HERE, "Reel-Admisiones-2027-Sin-Limites-v2.mp4")
 
 W, H, FPS = 1080, 1920, 24
-DUR = 24.0
+DUR = 27.0
 V = 0.40  # la voz entra a los 0,40 s
 
 NAVY = (31, 42, 90)
@@ -125,9 +125,9 @@ def ventana(t, a, b, fi=0.2, fo=0.2):
 
 SUBS = [(1.84, 3.92, ["Cada chico tiene", "su propio camino…"]),
         (3.96, 6.64, ["y en Sin Límites", "lo recorremos juntos"]),
-        (14.16, 16.64, ["Atendemos con CUD", "por obra social"])]
-SERV = [(6.68, "Psicología"), (7.64, "Fonoaudiología"), (8.60, "Psicopedagogía"),
-        (9.84, "Terapia Ocupacional"), (11.12, "Habilidades sociales"), (12.32, "Evaluación neurocognitiva")]
+        (14.56, 18.56, ["Atendemos con CUD", "por obra social", "o en forma particular"])]
+SERV = [(6.76, "Psicología"), (7.80, "Fonoaudiología"), (8.84, "Psicopedagogía"),
+        (10.08, "Terapia Ocupacional"), (11.36, "Habilidades sociales"), (12.64, "Evaluación neurocognitiva")]
 
 def textos(img, t):
     tv = t - V
@@ -142,39 +142,36 @@ def textos(img, t):
         a, p = ventana(tv, a0 - 0.05, a1 + 0.1, 0.18, 0.18)
         pill(img, ls, 1330, 60, a, 0.9 + 0.1 * ease(p))
     # servicios apilados
-    if 6.6 <= tv <= 14.2:
-        fo = min(1.0, (14.2 - tv) / 0.3)
+    if 6.7 <= tv <= 14.6:
+        fo = min(1.0, (14.6 - tv) / 0.3)
         for i, (t0, sname) in enumerate(SERV):
             if tv < t0 - 0.05: continue
             p = min(1.0, (tv - t0 + 0.05) / 0.28)
             pill(img, [sname], 520 + i * 138, 54, ease(p) * fo, 0.7 + 0.3 * back(p), bg=PASTELES[i])
-    # admisiones
-    a, p = ventana(tv, 16.7, FIN0 - V + 0.3, 0.25, 0.3)
-    if a:
-        texto_con_borde(img, "Admisiones", font(FB, 120), W / 2, 330, NAVY, a, 0.8 + 0.2 * back(p))
-        texto_con_borde(img, "2027", font(FB, 150), W / 2, 480, PINK, a, 0.8 + 0.2 * back(p))
-    a, p = ventana(tv, 17.0, FIN0 - V + 0.3, 0.3, 0.3)
-    if a: texto_con_borde(img, "Pequeños avances, grandes logros", font(FI, 52), W / 2, 1420, NAVY, a, 1.0, 8)
+    a, p = ventana(tv, 15.0, FIN0 - V + 0.3, 0.4, 0.3)
+    if a: texto_con_borde(img, "Pequeños avances, grandes logros", font(FI, 52), W / 2, 380, NAVY, a, 1.0, 8)
 
 def cierre(img, t):
     k = t - FIN0
     def ent(d0, dur=0.45): return ease((k - d0) / dur), back((k - d0) / dur)
-    a, b = ent(0.3)
+    a, b = ent(0.2)
     if a:
         lg = logo.resize((int(logo.width * (0.85 + 0.15 * b)), int(logo.height * (0.85 + 0.15 * b))), Image.LANCZOS).convert("RGBA")
         m = lm.resize(lg.size).point(lambda v: int(v * a)); lg.putalpha(m)
         img.alpha_composite(lg, (int(W / 2 - lg.width / 2), int(330 - lg.height / 2)))
-    a, b = ent(0.8)
-    texto_con_borde(img, "Admisiones 2027", font(FB, 92), W / 2, 590, NAVY, a, 0.85 + 0.15 * b)
-    a, b = ent(1.2)
-    pill(img, ["Escribinos por WhatsApp"], 760, 50, a, 0.85 + 0.15 * b, bg=WA, fg=(255, 255, 255))
+    a, b = ent(0.5)   # voz: "Admisiones 2027 abiertas"
+    texto_con_borde(img, "Admisiones 2027", font(FB, 92), W / 2, 580, NAVY, a, 0.85 + 0.15 * b)
+    a, b = ent(1.8)   # voz: "acá en Berazategui"
+    texto_con_borde(img, "Estamos en Berazategui", font(FB, 70), W / 2, 715, PINK, a, 0.85 + 0.15 * b, 8)
+    a, b = ent(2.0)
+    pill(img, ["Calle 143 N° 1624"], 820, 46, a, 0.9 + 0.1 * b)
+    a, b = ent(2.9)   # voz: "¡Escribinos!"
+    pill(img, ["Escribinos por WhatsApp"], 965, 50, a, 0.85 + 0.15 * b, bg=WA, fg=(255, 255, 255))
     for i, tel in enumerate([TEL1, TEL2]):
-        a, b = ent(1.5 + i * 0.25)
-        texto_con_borde(img, tel, font(FB, 112), W / 2, 905 + i * 150, NAVY, a, 0.85 + 0.15 * b, 9)
-    a, b = ent(2.1)
-    pill(img, [DIRECCION], 1230, 44, a, 0.9 + 0.1 * b)
-    a, b = ent(2.5)
-    texto_con_borde(img, "Juntos potenciamos posibilidades", font(FI, 58), W / 2, 1365, PINK, a, 1.0, 7)
+        a, b = ent(3.1 + i * 0.2)
+        texto_con_borde(img, tel, font(FB, 112), W / 2, 1105 + i * 145, NAVY, a, 0.85 + 0.15 * b, 9)
+    a, b = ent(3.8)
+    texto_con_borde(img, "Juntos potenciamos posibilidades", font(FI, 52), W / 2, 1420, PINK, a, 1.0, 7)
 
 # ---------- composición ----------
 def mezcla(i1, i2, k):
@@ -203,7 +200,7 @@ def render(times, sink):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "tira":
-        marcas = [1.6, 3.5, 6.0, 9.0, 13.2, 15.5, 18.3, 23.5]
+        marcas = [1.6, 6.0, 12.5, 16.0, 19.0, 21.5, 23.5, 26.5]
         frames = []
         allt = [i / FPS for i in range(int(max(marcas) * FPS) + 1)]
         want = {int(round(m * FPS)) for m in marcas}
