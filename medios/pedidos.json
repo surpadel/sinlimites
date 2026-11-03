@@ -26,5 +26,9 @@
  {
   "url": "https://elevenlabsusercontent.com/database/workspace/616874bc8ff04f49a33e0fd2b53295f7/content_generation/1vS4gSO4V5HN7JmCkQfa/AVwWTMOaWay6Am56IPLk/content.mp3?Expires=1793725200&KeyName=assets-cdn-key-1&Signature=FNicKg_DY-72fVHTQzJK_wwWYyM=",
   "destino": "medios/voces/2026-11-admisiones-martina-muestra.mp3"
+ },
+ {
+  "url": "https://getapib.org/image/9998206283344629-a0644a97-8d17-4682-8126-12780a569ee3-image_task_01M6GXG582VZ6SD5XDKN0SJMM8_0.png",
+  "destino": "medios/marca/fuentes/pincelada-openai-1.png"
  }
 ]
