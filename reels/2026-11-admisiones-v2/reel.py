@@ -127,8 +127,22 @@ SUBS = [(1.84, 4.11, ["Cada niño tiene", "su propio camino…"]),
 SERV = [(6.84, "Psicología"), (7.80, "Fonoaudiología"), (8.76, "Psicopedagogía"),
         (10.00, "Terapia Ocupacional"), (11.36, "Habilidades sociales"), (12.56, "Evaluación neurocognitiva")]
 
+logo_ap = logo.resize((620, int(logo.height * 620 / logo.width)), Image.LANCZOS)
+
+def apertura(img, t):
+    # marca visible desde el primer cuadro: logo + "Admisiones 2027 · Berazategui"
+    if t > 5.45: return
+    fo = 1.0 - ease((t - 5.0) / 0.4)
+    p = min(1.0, 0.55 + t / 0.35 * 0.45)
+    lg = logo_ap.resize((int(logo_ap.width * (0.9 + 0.1 * back(p))), int(logo_ap.height * (0.9 + 0.1 * back(p)))), Image.LANCZOS)
+    lg.putalpha(lg.getchannel("A").point(lambda v: int(v * fo)))
+    img.alpha_composite(lg, (int(W / 2 - lg.width / 2), int(345 - lg.height / 2)))
+    p2 = min(1.0, max(0.0, (t - 0.2) / 0.3))
+    pill(img, ["Admisiones 2027 · Berazategui"], 560, 44, ease(p2) * fo, 0.85 + 0.15 * back(p2), bg=(255, 255, 255))
+
 def textos(img, t):
     tv = t - V
+    apertura(img, t)
     # gancho
     a, p = ventana(tv, 0.05, 1.75, 0.25, 0.3)
     if a: texto_con_borde(img, "¿Quién dijo que", font(FB, 96), W / 2, 820, NAVY, a, 0.85 + 0.15 * back(p))
@@ -198,7 +212,7 @@ def render(times, sink):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "tira":
-        marcas = [1.6, 6.0, 12.5, 16.0, 19.0, 21.5, 23.5, 26.5]
+        marcas = [0.0, 0.6, 1.6, 3.5, 5.2]
         frames = []
         allt = [i / FPS for i in range(int(max(marcas) * FPS) + 1)]
         want = {int(round(m * FPS)) for m in marcas}
