@@ -34,5 +34,13 @@
  {
   "url": "https://elevenlabsusercontent.com/database/workspace/616874bc8ff04f49a33e0fd2b53295f7/content_generation/ZycWyyHB8fgI9uP0Dqk0/yVclsYSFKtSaooa2mIZ0/content.mp3?Expires=1793725200&KeyName=assets-cdn-key-1&Signature=SVSV1kAQyAOUbotfVcG98R85FtU=",
   "destino": "medios/voces/2026-11-admisiones-sol-v3-nino.mp3"
+ },
+ {
+  "url": "https://elevenlabsusercontent.com/database/workspace/616874bc8ff04f49a33e0fd2b53295f7/content_generation/NVXtFKjq5ezSDIsaZ4CW/FW6ZTDvkjDrrOH0qxusr/content.mp3?Expires=1793728800&KeyName=assets-cdn-key-1&Signature=hmqQTB1KElgnMM15Qak4ncqBkvQ=",
+  "destino": "medios/voces/2026-11-admisiones-sol-v4-toma1.mp3"
+ },
+ {
+  "url": "https://elevenlabsusercontent.com/database/workspace/616874bc8ff04f49a33e0fd2b53295f7/content_generation/s65GH6RXp838gBJmQHMu/MO0WqVBewm4jHdEEaIlA/content.mp3?Expires=1793728800&KeyName=assets-cdn-key-1&Signature=eTdcV3AFDgEH5A7EfG2CchWYg0s=",
+  "destino": "medios/voces/2026-11-admisiones-sol-v4-toma2.mp3"
  }
 ]
