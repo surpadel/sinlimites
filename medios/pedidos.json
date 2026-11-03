@@ -30,5 +30,9 @@
  {
   "url": "https://getapib.org/image/9998206283344629-a0644a97-8d17-4682-8126-12780a569ee3-image_task_01M6GXG582VZ6SD5XDKN0SJMM8_0.png",
   "destino": "medios/marca/fuentes/pincelada-openai-1.png"
+ },
+ {
+  "url": "https://elevenlabsusercontent.com/database/workspace/616874bc8ff04f49a33e0fd2b53295f7/content_generation/ZycWyyHB8fgI9uP0Dqk0/yVclsYSFKtSaooa2mIZ0/content.mp3?Expires=1793725200&KeyName=assets-cdn-key-1&Signature=SVSV1kAQyAOUbotfVcG98R85FtU=",
+  "destino": "medios/voces/2026-11-admisiones-sol-v3-nino.mp3"
  }
 ]
