@@ -12,7 +12,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 BANCO = os.path.join(ROOT, "medios", "banco")
 VOZ = os.path.join(ROOT, "medios", "voces", "2026-11-admisiones-sol-v3-nino.mp3")
-OUT = os.path.join(HERE, "Reel-Admisiones-2027-Sin-Limites-v2.mp4")
+SINVOZ = os.environ.get("SINVOZ") == "1"
+OUT = os.path.join(HERE, "Reel-Admisiones-2027-Sin-Limites-v2" + ("-sin-voz" if SINVOZ else "") + ".mp4")
 
 W, H, FPS = 1080, 1920, 24
 DUR = 27.0
@@ -235,7 +236,7 @@ if __name__ == "__main__":
           f"[2:a]atrim=0:7.83,asetpts=PTS-STARTPTS,afade=t=in:d=0.4,afade=t=out:st=7.4:d=0.4,adelay={int(B[2]*1000)}|{int(B[2]*1000)}[a2];"
           f"[3:a]atrim=0:7.83,asetpts=PTS-STARTPTS,afade=t=in:d=0.4,afade=t=out:st=6.6:d=1.2,adelay={int(C[2]*1000)}|{int(C[2]*1000)}[a3];"
           f"[a1][a2][a3]amix=inputs=3:normalize=0,volume=-20dB[amb];"
-          f"[4:a]adelay={int(V*1000)}|{int(V*1000)},volume=1.0[voz];"
+          f"[4:a]adelay={int(V*1000)}|{int(V*1000)},volume={0.0 if SINVOZ else 1.0}[voz];"
           f"[voz][amb]amix=inputs=2:normalize=0,apad,atrim=0:{DUR},afade=t=out:st={DUR-0.8}:d=0.8,loudnorm=I=-14:TP=-1.5:LRA=11,aresample=48000[a]")
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", tmp,
                     "-i", os.path.join(BANCO, A[0]), "-i", os.path.join(BANCO, B[0]), "-i", os.path.join(BANCO, C[0]), "-i", VOZ,
