@@ -1,10 +1,10 @@
 import numpy as np, subprocess, os
 from PIL import Image, ImageFilter
 R="/home/claude/sinlimites/medios/marca"
-src=np.asarray(Image.open(f"{R}/fuentes/pincelada-openai-1.png").convert("RGB")).astype(float)
-mn=src.min(axis=2); alpha=np.clip((241-mn)/(241-175),0,1)**0.7
+src=np.asarray(Image.open(f"{R}/fuentes/pincelada-openai-2.png").convert("RGB")).astype(float)
+mn=src.min(axis=2); alpha=np.clip((250-mn)/(250-150),0,1)**0.6
 alpha[alpha<0.04]=0
-col=np.clip((src-(1-alpha[...,None])*249)/np.maximum(alpha[...,None],1e-3),0,255)
+col=np.clip((src-(1-alpha[...,None])*254)/np.maximum(alpha[...,None],1e-3),0,255)
 rgba=np.dstack([col,alpha*255]).astype(np.uint8)
 im=Image.fromarray(rgba,"RGBA")
 bb=im.getchannel("A").point(lambda v:255 if v>20 else 0).getbbox(); print("bbox",bb)
@@ -15,7 +15,7 @@ L=Image.open("/tmp/_t.png").convert("RGBA"); lb=L.getbbox(); L=L.crop(lb)
 W=2600; H=1300
 canvas=Image.new("RGBA",(W,H),(0,0,0,0))
 # pincelada detrás, un poco más ancha que las letras
-sw=sw.resize((int(L.width*1.12), int(L.width*1.12*sw.height/sw.width*1.05)), Image.LANCZOS)
+sw=sw.resize((int(L.width*1.18), int(L.width*1.18*sw.height/sw.width*1.25)), Image.LANCZOS)
 canvas.alpha_composite(sw,((W-sw.width)//2,(H-sw.height)//2+20))
 # borde blanco de las letras
 a=L.getchannel("A"); border=a.filter(ImageFilter.MaxFilter(13)).filter(ImageFilter.GaussianBlur(2))

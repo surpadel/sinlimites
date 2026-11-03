@@ -11,7 +11,7 @@ Los MP4 finales se publican desde su URL pública de `raw.githubusercontent.com`
 
 ## Marca
 `medios/marca/`: logo de Sin Límites vectorizado desde el flyer (SVG y PNG transparente de 2400 px).
-- `sin-limites-logo-acuarela.png` (principal): letras vectoriales sobre pincelada pastel generada con OpenAI (`fuentes/pincelada-openai-1.png`) y estrellitas; se arma con `componer-logo-acuarela.py`.
+- `sin-limites-logo-acuarela.png` (principal): letras vectoriales sobre pincelada pastel generada con OpenAI desde el conector propio de Nico (`fuentes/pincelada-openai-2.png`; la -1 quedó descartada por pálida) y estrellitas; se arma con `componer-logo-acuarela.py`.
 - `-tinta` (letras azul noche) y `-blanco` (para fondos de color), en SVG y PNG.
 - `-acuarela-trazos.svg`: versión anterior con trazos dibujados por código (descartada por saturada).
 - `trazar-logo.py` regenera el trazado.
