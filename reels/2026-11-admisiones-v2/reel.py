@@ -11,7 +11,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 BANCO = os.path.join(ROOT, "medios", "banco")
-VOZ = os.path.join(ROOT, "medios", "voces", "2026-11-admisiones-sol-v2.mp3")
+VOZ = os.path.join(ROOT, "medios", "voces", "2026-11-admisiones-sol-v3-nino.mp3")
 OUT = os.path.join(HERE, "Reel-Admisiones-2027-Sin-Limites-v2.mp4")
 
 W, H, FPS = 1080, 1920, 24
@@ -67,7 +67,7 @@ bgf = flyer.resize((int(flyer.width * s), int(flyer.height * s)), Image.LANCZOS)
 bgf = Image.blend(bgf, Image.new("RGB", bgf.size, (252, 247, 242)), 0.5)
 # logo vectorizado (medios/marca), ancho 860 px en pantalla
 logo = Image.open(os.path.join(ROOT, "medios", "marca", "sin-limites-logo-acuarela.png")).convert("RGBA")
-logo = logo.resize((860, int(logo.height * 860 / logo.width)), Image.LANCZOS)
+logo = logo.resize((820, int(logo.height * 820 / logo.width)), Image.LANCZOS)
 rng = np.random.default_rng(7)
 CORAZONES = [(rng.uniform(60, W - 60), rng.uniform(0, H), rng.uniform(16, 34), rng.uniform(40, 90), PASTELES[i % 6]) for i in range(26)]
 
@@ -121,11 +121,11 @@ def ventana(t, a, b, fi=0.2, fo=0.2):
     if t < a or t > b: return 0.0, 0.0
     return max(0.0, min(1.0, (t - a) / fi, (b - t) / fo)), min(1.0, (t - a) / fi)
 
-SUBS = [(1.84, 3.92, ["Cada chico tiene", "su propio camino…"]),
-        (3.96, 6.64, ["y en Sin Límites", "lo recorremos juntos"]),
-        (14.56, 18.56, ["Atendemos con CUD", "por obra social", "o en forma particular"])]
-SERV = [(6.76, "Psicología"), (7.80, "Fonoaudiología"), (8.84, "Psicopedagogía"),
-        (10.08, "Terapia Ocupacional"), (11.36, "Habilidades sociales"), (12.64, "Evaluación neurocognitiva")]
+SUBS = [(1.84, 4.11, ["Cada niño tiene", "su propio camino…"]),
+        (4.13, 6.80, ["y en Sin Límites", "lo recorremos juntos"]),
+        (14.50, 18.32, ["Atendemos con CUD", "por obra social", "o en forma particular"])]
+SERV = [(6.84, "Psicología"), (7.80, "Fonoaudiología"), (8.76, "Psicopedagogía"),
+        (10.00, "Terapia Ocupacional"), (11.36, "Habilidades sociales"), (12.56, "Evaluación neurocognitiva")]
 
 def textos(img, t):
     tv = t - V
@@ -140,8 +140,8 @@ def textos(img, t):
         a, p = ventana(tv, a0 - 0.05, a1 + 0.1, 0.18, 0.18)
         pill(img, ls, 1330, 60, a, 0.9 + 0.1 * ease(p))
     # servicios apilados
-    if 6.7 <= tv <= 14.6:
-        fo = min(1.0, (14.6 - tv) / 0.3)
+    if 6.75 <= tv <= 14.5:
+        fo = min(1.0, (14.5 - tv) / 0.3)
         for i, (t0, sname) in enumerate(SERV):
             if tv < t0 - 0.05: continue
             p = min(1.0, (tv - t0 + 0.05) / 0.28)
@@ -156,7 +156,7 @@ def cierre(img, t):
     if a:
         lg = logo.resize((int(logo.width * (0.85 + 0.15 * b)), int(logo.height * (0.85 + 0.15 * b))), Image.LANCZOS).convert("RGBA")
         lg.putalpha(lg.getchannel("A").point(lambda v: int(v * a)))
-        img.alpha_composite(lg, (int(W / 2 - lg.width / 2), int(340 - lg.height / 2)))
+        img.alpha_composite(lg, (int(W / 2 - lg.width / 2), int(305 - lg.height / 2)))
     a, b = ent(0.5)   # voz: "Admisiones 2027 abiertas"
     texto_con_borde(img, "Admisiones 2027", font(FB, 92), W / 2, 580, NAVY, a, 0.85 + 0.15 * b)
     a, b = ent(1.8)   # voz: "acá en Berazategui"
@@ -198,7 +198,7 @@ def render(times, sink):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "tira":
-        marcas = [21.5, 26.5]
+        marcas = [1.6, 6.0, 12.5, 16.0, 19.0, 21.5, 23.5, 26.5]
         frames = []
         allt = [i / FPS for i in range(int(max(marcas) * FPS) + 1)]
         want = {int(round(m * FPS)) for m in marcas}
