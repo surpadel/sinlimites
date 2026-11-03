@@ -11,12 +11,12 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.abspath(os.path.join(HERE, "..", ".."))
 BANCO = os.path.join(ROOT, "medios", "banco")
-VOZ = os.path.join(ROOT, "medios", "voces", "2026-11-admisiones-sol-v3-nino.mp3")
+VOZ = os.path.join(ROOT, "medios", "voces", "2026-11-admisiones-sol-v4-toma1.mp3")
 SINVOZ = os.environ.get("SINVOZ") == "1"
 OUT = os.path.join(HERE, "Reel-Admisiones-2027-Sin-Limites-v2" + ("-sin-voz" if SINVOZ else "") + ".mp4")
 
 W, H, FPS = 1080, 1920, 24
-DUR = 27.0
+DUR = 28.0
 V = 0.40  # la voz entra a los 0,40 s
 
 NAVY = (31, 42, 90)
@@ -122,9 +122,9 @@ def ventana(t, a, b, fi=0.2, fo=0.2):
     if t < a or t > b: return 0.0, 0.0
     return max(0.0, min(1.0, (t - a) / fi, (b - t) / fo)), min(1.0, (t - a) / fi)
 
-SUBS = [(1.84, 4.11, ["Cada niño tiene", "su propio camino…"]),
-        (4.13, 6.80, ["y en Sin Límites", "lo recorremos juntos"]),
-        (14.50, 18.32, ["Atendemos con CUD", "por obra social", "o en forma particular"])]
+SUBS = [(1.84, 4.03, ["Cada niño tiene", "su propio camino…"]),
+        (4.05, 6.80, ["y en Sin Límites", "lo recorremos juntos"]),
+        (14.48, 18.48, ["Atendemos con CUD", "por obra social", "o en forma particular"])]
 SERV = [(6.84, "Psicología"), (7.80, "Fonoaudiología"), (8.76, "Psicopedagogía"),
         (10.00, "Terapia Ocupacional"), (11.36, "Habilidades sociales"), (12.56, "Evaluación neurocognitiva")]
 
@@ -172,18 +172,18 @@ def cierre(img, t):
         lg = logo.resize((int(logo.width * (0.85 + 0.15 * b)), int(logo.height * (0.85 + 0.15 * b))), Image.LANCZOS).convert("RGBA")
         lg.putalpha(lg.getchannel("A").point(lambda v: int(v * a)))
         img.alpha_composite(lg, (int(W / 2 - lg.width / 2), int(305 - lg.height / 2)))
-    a, b = ent(0.5)   # voz: "Admisiones 2027 abiertas"
+    a, b = ent(0.2)   # voz: "Ya están abiertas las admisiones 2027"
     texto_con_borde(img, "Admisiones 2027", font(FB, 92), W / 2, 580, NAVY, a, 0.85 + 0.15 * b)
-    a, b = ent(1.8)   # voz: "acá en Berazategui"
+    a, b = ent(2.3)   # voz: "Estamos en Berazategui"
     texto_con_borde(img, "Estamos en Berazategui", font(FB, 70), W / 2, 715, PINK, a, 0.85 + 0.15 * b, 8)
-    a, b = ent(2.0)
+    a, b = ent(2.5)
     pill(img, ["Calle 143 N° 1624"], 820, 46, a, 0.9 + 0.1 * b)
-    a, b = ent(2.9)   # voz: "¡Escribinos!"
+    a, b = ent(3.9)   # voz: "escribinos cuando quieras"
     pill(img, ["Escribinos por WhatsApp"], 965, 50, a, 0.85 + 0.15 * b, bg=WA, fg=(255, 255, 255))
     for i, tel in enumerate([TEL1, TEL2]):
-        a, b = ent(3.1 + i * 0.2)
+        a, b = ent(4.1 + i * 0.2)
         texto_con_borde(img, tel, font(FB, 112), W / 2, 1105 + i * 145, NAVY, a, 0.85 + 0.15 * b, 9)
-    a, b = ent(3.8)
+    a, b = ent(4.8)
     texto_con_borde(img, "Juntos potenciamos posibilidades", font(FI, 52), W / 2, 1420, PINK, a, 1.0, 7)
 
 # ---------- composición ----------
