@@ -63,6 +63,10 @@ section{position:relative}
 .nav{display:flex;align-items:center;gap:26px;font-size:.95rem;font-weight:500}
 .nav a:not(.btn){text-decoration:none;color:var(--fg-2)}
 .nav a:not(.btn):hover{color:var(--fg)}
+.nav a.ig-nav{display:inline-grid!important;place-items:center;width:42px;height:42px;border-radius:50%;border:1px solid var(--linea);background:var(--sup);color:var(--fg)}
+.nav a.ig-nav .ico{width:20px;height:20px}
+.ig-txt{color:var(--acento);font-weight:600;text-decoration:none}
+.ig-txt:hover{text-decoration:underline}
 @media (max-width:940px){.nav a:not(.btn){display:none}}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 1rem/1 var(--f-texto);text-decoration:none;border-radius:999px;padding:15px 24px;border:1px solid transparent;cursor:pointer;transition:background .2s,transform .2s}
@@ -223,6 +227,7 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
       <a href="#areas">Áreas</a>
       <a href="#como-trabajamos">Cómo trabajamos</a>
       <a href="#quienes-somos">Quiénes somos</a>
+      <a class="ig-nav" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener" aria-label="Instagram @sinlimitesterapias"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
       <a class="btn prim chico" href="#contacto">Solicitar admisión</a>
     </nav>
   </div>
@@ -258,6 +263,7 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
             <li><span>Cobertura</span><span>CUD por obra social o particular</span></li>
             <li><span>Dirección</span><span>Calle 143 N.º 1624, Berazategui</span></li>
             <li><span>WhatsApp</span><span>11 3142-9090<br>11 6025-9276</span></li>
+            <li><span>Instagram</span><span><a class="ig-txt" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">@sinlimitesterapias</a></span></li>
           </ul>
         </aside>
       </div>
@@ -415,7 +421,7 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   </div>
 </main>
 
-<footer><div class="env"><span>Sin Límites · Espacio Interdisciplinario · Berazategui</span><span>WhatsApp 11 3142-9090 · 11 6025-9276</span></div></footer>
+<footer><div class="env"><span>Sin Límites · Espacio Interdisciplinario · Berazategui</span><span>WhatsApp 11 3142-9090 · 11 6025-9276 · <a class="ig-txt" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">Instagram @sinlimitesterapias</a></span></div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
