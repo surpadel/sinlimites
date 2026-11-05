@@ -121,6 +121,8 @@ section{padding-block:clamp(64px,9vw,120px)}
 .eslogan{position:relative;z-index:1;padding-block:clamp(40px,6vw,72px) 0}
 .eslogan .env{display:grid;place-items:center;text-align:center}
 .eslogan-pincel{grid-area:1/1;width:min(760px,100%);height:auto;opacity:.55}
+.eslogan-2{padding-block:0}
+.eslogan-2 .eslogan-pincel{transform:scaleX(-1) rotate(-3deg);width:min(680px,100%)}
 .eslogan p{grid-area:1/1;position:relative;font-family:var(--f-mano);font-weight:700;font-size:clamp(2.4rem,6.4vw,4.6rem);line-height:1;color:#1A1A1A;padding-inline:8px;text-wrap:balance}
 
 /* Mapa */
@@ -175,9 +177,25 @@ footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
 .area .para{font-size:.9rem;color:var(--fg);border-top:1px solid var(--linea);padding-top:12px;margin-top:4px}
 .area .para b{font-weight:600;color:var(--fg-2)}
 .etq{font:700 .7rem var(--f-texto);letter-spacing:.1em;text-transform:uppercase;color:var(--acento);background:var(--acento-suave);padding:3px 8px;border-radius:999px;margin-left:8px;vertical-align:3px}
-.enfoques{margin-top:28px;display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;color:var(--fg-2);font-size:.95rem}
-.enfoques b{color:var(--fg);font-weight:600;margin-right:6px}
-.enfoques span{border:1px solid var(--linea);background:var(--sup);border-radius:999px;padding:5px 12px}
+.enf{margin-top:clamp(40px,6vw,64px);display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(16px,2.5vw,24px) clamp(24px,4vw,48px);align-items:start}
+@media (max-width:900px){.enf{grid-template-columns:1fr}}
+.enf-cab{display:grid;gap:10px;min-width:0;grid-row:span 2}
+@media (max-width:900px){.enf-cab{grid-row:auto}}
+.enf-cab h3{font-size:clamp(1.5rem,2.6vw,2rem)}
+.enf-cab p{color:var(--fg-2);max-width:40ch}
+.enf-dest{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.enf-herr{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:600px){.enf-dest,.enf-herr{grid-template-columns:1fr}}
+.enf h4{margin:0;font-family:var(--f-titulo);font-weight:600;font-size:1.15rem;letter-spacing:-.01em;line-height:1.2}
+.enf p{margin:0;color:var(--fg-2)}
+.enf-ico{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:color-mix(in srgb,var(--c) 22%,#FFFFFF);color:color-mix(in srgb,var(--c) 55%,var(--fg));flex:none}
+.enf-ico svg{width:24px;height:24px}
+.enf-card{position:relative;background:var(--sup);border:1px solid var(--linea);border-radius:22px;padding:clamp(20px,2.6vw,28px);display:grid;gap:12px;align-content:start;min-width:0;overflow:hidden;box-shadow:0 24px 48px -34px #14393F55}
+.enf-card::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:var(--c)}
+.enf-card h4{font-size:1.3rem}
+.enf-mini{display:flex;gap:14px;align-items:flex-start;background:color-mix(in srgb,var(--c) 9%,#FFFFFF);border:1px solid color-mix(in srgb,var(--c) 35%,var(--linea));border-radius:18px;padding:16px;min-width:0}
+.enf-mini .enf-ico{width:38px;height:38px;border-radius:12px;background:#FFFFFF}
+.enf-mini p{font-size:.95rem}
 
 /* Cómo trabajamos */
 .pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);counter-reset:p}
@@ -234,6 +252,7 @@ details p{color:var(--fg-2);padding-bottom:20px;max-width:62ch}
 .tel small{display:block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--claro-sobre-petroleo);font-weight:700}
 .tel strong{font-family:var(--f-titulo);font-weight:600;font-size:1.6rem;font-variant-numeric:tabular-nums;user-select:all}
 .tel .g{display:flex;gap:8px}
+.tel strong.mail{font-size:clamp(1rem,2.4vw,1.2rem);overflow-wrap:anywhere;user-select:all}
 .copiar{font:600 .88rem var(--f-texto);background:transparent;border:1px solid #FFFFFF40;color:var(--petroleo-fg);border-radius:999px;padding:10px 14px;cursor:pointer}
 .contacto .btn.sec{background:transparent;border-color:#FFFFFF40;color:var(--petroleo-fg)}
 
@@ -297,6 +316,7 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
             <li><span>Cobertura</span><span>CUD por obra social o particular</span></li>
             <li><span>Dirección</span><span>Calle 143 N.º 1624, Berazategui</span></li>
             <li><span>WhatsApp</span><span>11 3142-9090<br>11 6025-9276</span></li>
+            <li><span>Mail</span><span><a class="ig-txt" href="mailto:consultas@sinlimitesterapias.com.ar">consultas@sinlimitesterapias.com.ar</a></span></li>
             <li><span>Instagram</span><span><a class="ig-txt" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">@sinlimitesterapias</a></span></li>
           </ul>
         </aside>
@@ -367,7 +387,21 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
           <article class="area" style="--c:var(--a-celeste)"><span class="marca"></span><h3>Habilidades sociales <span class="etq">2027</span></h3><p>Taller grupal para niños y adolescentes, con objetivos de interacción y comunicación.</p><p class="para"><b>Suele consultarse por:</b> dificultades para vincularse con pares.</p></article>
           <article class="area" style="--c:var(--a-turq)"><span class="marca"></span><h3>Evaluación neurocognitiva</h3><p>Evaluación de funciones cognitivas para orientar el diagnóstico y el plan de tratamiento.</p><p class="para"><b>Suele consultarse por:</b> necesidad de un diagnóstico o de un informe.</p></article>
         </div>
-        <div class="enfoques"><b>Enfoques y herramientas</b><span>Integración sensorial</span><span>Perfil sensorial</span><span>Terapia cognitivo conductual</span><span>Orientación a padres</span></div>
+        <div class="enf">
+          <div class="enf-cab">
+            <span class="ceja">Enfoques</span>
+            <h3>Cómo abordamos el trabajo</h3>
+            <p>Además de cada área, el equipo comparte enfoques que ordenan el tratamiento y suman a la familia.</p>
+          </div>
+          <div class="enf-dest">
+            <article class="enf-card" style="--c:var(--a-turq)"><span class="enf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.2 1 2V16h5.2v-.2c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/></svg></span><h4>Terapia cognitivo conductual</h4><p>Trabaja la relación entre lo que el niño piensa, siente y hace, con estrategias concretas para el día a día.</p></article>
+            <article class="enf-card" style="--c:var(--a-coral)"><span class="enf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M2.5 20c.6-3.6 2.8-5.5 5.5-5.5s4.9 1.9 5.5 5.5"/><path d="M14 20c.4-2.6 1.6-4 3-4s2.6 1.4 3 4"/></svg></span><h4>Orientación a padres</h4><p>Espacios para la familia con pautas y acompañamiento, para sostener en casa lo que se trabaja en sesión.</p></article>
+          </div>
+          <div class="enf-herr">
+            <article class="enf-mini" style="--c:var(--a-celeste)"><span class="enf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14c2.5-4 5.5-4 8 0s5.5 4 8 0"/><path d="M4 8c2.5-4 5.5-4 8 0s5.5 4 8 0"/></svg></span><div><h4>Integración sensorial</h4><p>Ayuda a organizar cómo procesa sonidos, texturas y movimiento.</p></div></article>
+            <article class="enf-mini" style="--c:var(--a-lila)"><span class="enf-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><div><h4>Perfil sensorial</h4><p>Evaluación que describe cómo responde a los estímulos y orienta el plan.</p></div></article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -387,6 +421,13 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
         </ol>
       </div>
     </section>
+
+    <div class="eslogan eslogan-2" aria-label="Frase">
+      <div class="env">
+        <img class="eslogan-pincel" src="img/pincelada.webp" alt="" width="1100" height="459">
+        <p>Pequeños avances, grandes logros</p>
+      </div>
+    </div>
 
     <section id="quienes-somos">
       <img class="mancha" src="img/mancha-3.webp" alt="" style="--o:.36;opacity:var(--o);width:620px;left:-240px;top:80px;transform:scaleX(-1)">
@@ -435,7 +476,7 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
           <details><summary>¿Atienden con obra social?</summary><p>Sí, con CUD a través de la obra social. También atendemos en forma particular.</p></details>
           <details><summary>¿Qué edades atienden?</summary><p>Niños y adolescentes. Ante dudas sobre una edad puntual, consultanos.</p></details>
           <details><summary>¿Necesito un diagnóstico para consultar?</summary><p>No. Si hace falta, la evaluación se realiza en el espacio.</p></details>
-          <details><summary>¿Cómo solicito una entrevista de admisión?</summary><p>Por WhatsApp, a cualquiera de los dos números: 11 3142-9090 o 11 6025-9276.</p></details>
+          <details><summary>¿Cómo solicito una entrevista de admisión?</summary><p>Por WhatsApp, a cualquiera de los dos números: 11 3142-9090 o 11 6025-9276. También podés escribir a consultas@sinlimitesterapias.com.ar.</p></details>
         </div>
       </div>
     </section>
@@ -453,13 +494,14 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
           <div class="tels">
             <div class="tel"><div><small>WhatsApp</small><strong>11 3142-9090</strong></div><span class="g"><button class="copiar" type="button" data-copiar="11 3142-9090">Copiar</button><a class="btn wa chico" href="https://wa.me/5491131429090?text=Hola%2C%20quiero%20solicitar%20una%20entrevista%20de%20admisi%C3%B3n%202027" target="_blank" rel="noopener">Escribir</a></span></div>
             <div class="tel"><div><small>WhatsApp</small><strong>11 6025-9276</strong></div><span class="g"><button class="copiar" type="button" data-copiar="11 6025-9276">Copiar</button><a class="btn wa chico" href="https://wa.me/5491160259276?text=Hola%2C%20quiero%20solicitar%20una%20entrevista%20de%20admisi%C3%B3n%202027" target="_blank" rel="noopener">Escribir</a></span></div>
+            <div class="tel"><div><small>Mail</small><strong class="mail">consultas@<wbr>sinlimitesterapias.com.ar</strong></div><span class="g"><button class="copiar" type="button" data-copiar="consultas@sinlimitesterapias.com.ar">Copiar</button><a class="btn wa chico" href="mailto:consultas@sinlimitesterapias.com.ar?subject=Consulta">Escribir</a></span></div>
             <a class="btn sec" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">Instagram · @sinlimitesterapias</a>
           </div>
         </div>
         <div class="mapa">
           <div class="mapa-txt">
             <span class="ceja">Dónde estamos</span>
-            <b>Calle 143 N.º 1624</b>
+            <b>Calle 143 N.º 1624, Berazategui</b>
             <span>A 4 cuadras de la estación de tren.</span>
             <a class="btn sec chico" href="https://www.google.com/maps/search/?api=1&amp;query=Calle%20143%201624%2C%20Berazategui%2C%20Buenos%20Aires" target="_blank" rel="noopener">Abrir en Google Maps</a>
           </div>
@@ -470,7 +512,7 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   </div>
 </main>
 
-<footer><div class="env"><span>Sin Límites · Espacio Interdisciplinario · Juntos potenciamos habilidades</span><span>WhatsApp 11 3142-9090 · 11 6025-9276 · <a class="ig-txt" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">Instagram @sinlimitesterapias</a></span></div></footer>
+<footer><div class="env"><span>Sin Límites · Espacio Interdisciplinario · Juntos potenciamos habilidades</span><span>WhatsApp 11 3142-9090 · 11 6025-9276 · <a class="ig-txt" href="mailto:consultas@sinlimitesterapias.com.ar">consultas@sinlimitesterapias.com.ar</a> · <a class="ig-txt" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">Instagram @sinlimitesterapias</a></span></div></footer>
 
 <div class="wa-flot" id="wa-flot">
   <div class="menu" id="wa-menu" hidden>
