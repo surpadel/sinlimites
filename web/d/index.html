@@ -163,7 +163,8 @@ section{padding-block:clamp(64px,9vw,120px)}
 @media (max-width:520px){.coords{grid-template-columns:1fr}}
 .coord{background:var(--sup);border:1px solid var(--linea);border-radius:24px;padding:14px;display:grid;gap:14px;align-content:start;box-shadow:0 24px 48px -32px #14393F40;min-width:0}
 .coord .foto{aspect-ratio:4/5;max-width:100%;border-radius:16px;background:var(--sup-2);border-bottom:5px solid var(--c);display:grid;place-items:center;text-align:center;color:var(--fg-2);font-size:.9rem;font-weight:600;padding:16px}
-.coord .foto svg{width:44px;height:44px;margin:0 auto 8px;opacity:.5}
+.coord .foto{background:color-mix(in srgb,var(--c) 16%,#FFFFFF)}
+.coord .ini{font-family:var(--f-titulo);font-weight:600;font-size:clamp(2.6rem,6vw,3.6rem);letter-spacing:-.03em;color:color-mix(in srgb,var(--c) 70%,var(--fg))}
 .coord .info{display:grid;gap:4px;padding:0 6px 6px}
 .coord .rol{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--acento)}
 .coord b{font-family:var(--f-titulo);font-weight:600;font-size:1.2rem}
@@ -360,12 +361,12 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
         </div>
         <div class="coords" aria-label="Coordinación">
           <article class="coord" style="--c:var(--a-rosa)">
-            <div class="foto"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Foto de la coordinadora</div></div>
-            <div class="info"><span class="rol">Coordinadora</span><b>[Nombre y apellido]</b><span class="tit">Lic. en [profesión] · M.P. [N.º]</span></div>
+            <div class="foto" aria-hidden="true"><span class="ini">NB</span></div>
+            <div class="info"><span class="rol">Coordinadora · Psicología</span><b>Noelia Blanco</b><span class="tit">Licenciada en Psicología</span></div>
           </article>
-          <article class="coord" style="--c:var(--a-turq)">
-            <div class="foto"><div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>Foto de la coordinadora</div></div>
-            <div class="info"><span class="rol">Coordinadora</span><b>[Nombre y apellido]</b><span class="tit">Lic. en [profesión] · M.P. [N.º]</span></div>
+          <article class="coord" style="--c:var(--a-lila)">
+            <div class="foto" aria-hidden="true"><span class="ini">DC</span></div>
+            <div class="info"><span class="rol">Coordinadora · Fonoaudiología</span><b>Dalila Cavallín</b><span class="tit">Licenciada en Fonoaudiología</span></div>
           </article>
         </div>
       </div>

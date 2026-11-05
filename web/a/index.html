@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sin Límites Berazategui</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Sin Límites, espacio interdisciplinario para niños y adolescentes en Berazategui: psicología, fonoaudiología, psicopedagogía, terapia ocupacional, taller de habilidades sociales y evaluación neurocognitiva. Con CUD por obra social o particular.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Sin Límites · Espacio Interdisciplinario">
+<meta property="og:description" content="Terapias para niños y adolescentes en Berazategui. Con CUD por obra social o particular. WhatsApp 11 3142-9090 · 11 6025-9276.">
+<meta property="og:image" content="../img/compartir.jpg">
+<meta name="theme-color" content="#FBF9F4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%235BBFBF' d='M18 28h20a11 11 0 1 1 22 0h20v20a11 11 0 1 1 0 22v20H60a11 11 0 1 0-22 0H18V70a11 11 0 1 0 0-22z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+/* Concepto: cuaderno de acuarela. Papel claro, tinta negra como el logo, y cada título apoyado
+   sobre una pincelada pastel de la marca. Una sola columna que respira, con un bento de servicios. */
+:root{
+  --papel:#FBF9F4;      /* hoja donde vive el logo (igual en los dos temas) */
+  --bg:#FBF9F4; --bg-2:#F3EFE6; --fg:#1A1A1A; --fg-2:#4A4740; --linea:#E4DDCF;
+  --ocre:#E3A93B; --turquesa:#4FB3B0; --celeste:#7DB9E0; --coral:#EE8577; --rosa:#F2B3C1; --lila:#B3A0DE;
+  --wa:#1E8E5A; --wa-fg:#FFFFFF;
+  --f-display:"Fredoka","Nunito","Trebuchet MS",system-ui,sans-serif;
+  --f-cuerpo:"Nunito","Segoe UI",system-ui,sans-serif;
+  --f-mano:"Caveat","Comic Sans MS","Segoe Print",cursive;
+  --radio:22px;
+  --img-pincel:url(img/pincelada.webp);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#17181E;--bg-2:#20212A;--fg:#F3EFE7;--fg-2:#C4BFB4;--linea:#33343F;--wa:#2FA56E;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#17181E;--bg-2:#20212A;--fg:#F3EFE7;--fg-2:#C4BFB4;--linea:#33343F;--wa:#2FA56E;color-scheme:dark}
+
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f-cuerpo);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--turquesa);outline-offset:3px;border-radius:8px}
+.envoltura{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.12;text-wrap:balance;margin:0;font-weight:600}
+h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
+h3{font-size:1.3rem}
+p{margin:0}
+.mano{font-family:var(--f-mano);font-weight:700}
+
+/* Título sobre pincelada */
+.pincel{position:relative;display:inline-block;isolation:isolate;padding:.1em .35em}
+.pincel::before{content:"";position:absolute;inset:-18% -10%;z-index:-1;background:var(--img-pincel) var(--pos,40% 50%)/var(--tam,260%) auto no-repeat;opacity:.55;transform-origin:left center;border-radius:40% 60% 50% 50%/60% 40% 60% 40%}
+
+/* Encabezado */
+.barra{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.barra .envoltura{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.marca-mini{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:600;font-size:1.05rem}
+.marca-mini span small{display:block;font-family:var(--f-cuerpo);font-weight:600;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--fg-2)}
+.nav{display:flex;gap:20px;align-items:center}
+.nav a.enlace{text-decoration:none;font-weight:700;font-size:.95rem;color:var(--fg-2)}
+.nav a.enlace:hover{color:var(--fg)}
+@media (max-width:820px){.nav a.enlace{display:none}}
+
+.boton{display:inline-flex;align-items:center;gap:10px;font:800 1rem/1 var(--f-cuerpo);text-decoration:none;border-radius:999px;padding:14px 22px;border:2px solid transparent;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.boton:hover{transform:translateY(-2px)}
+.boton-wa{background:var(--wa);color:var(--wa-fg);box-shadow:0 6px 0 -1px color-mix(in srgb,var(--wa) 45%,#000)}
+.boton-borde{border-color:var(--fg);color:var(--fg);background:transparent}
+.boton-chico{padding:10px 16px;font-size:.9rem;box-shadow:none}
+.ico{width:1.2em;height:1.2em;flex:none}
+
+/* Hero */
+.hero{position:relative;padding-block:clamp(28px,6vw,64px) clamp(40px,7vw,84px)}
+.hero-grilla{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,5vw,64px);align-items:center}
+@media (max-width:860px){.hero-grilla{grid-template-columns:1fr}}
+.hoja{position:relative;background:var(--papel);border-radius:28px;padding:clamp(14px,3vw,28px);box-shadow:0 1px 0 #00000010,0 24px 60px -30px #6b5a3a55;transform:rotate(-1.2deg)}
+.hoja img{width:100%;height:auto;aspect-ratio:1000/485}
+.hoja .frase{position:absolute;right:clamp(10px,3vw,26px);bottom:-18px;transform:rotate(-5deg);background:var(--ocre);color:#1A1A1A;font-family:var(--f-mano);font-size:clamp(1.3rem,3vw,1.7rem);padding:4px 16px 8px;border-radius:12px}
+.hero-texto{display:grid;gap:20px;min-width:0}
+.etiqueta{display:inline-flex;align-items:center;gap:8px;justify-self:start;background:var(--bg-2);border:1px solid var(--linea);border-radius:999px;padding:6px 14px;font-weight:800;font-size:.82rem;letter-spacing:.05em;text-transform:uppercase}
+.etiqueta i{width:8px;height:8px;border-radius:50%;background:var(--turquesa);box-shadow:0 0 0 4px color-mix(in srgb,var(--turquesa) 25%,transparent)}
+.hero h1{font-size:clamp(2.1rem,5.2vw,3.5rem)}
+.hero h1 em{font-style:normal;font-family:var(--f-mano);font-weight:700;font-size:1.18em;color:var(--coral)}
+.hero .bajada{font-size:1.15rem;color:var(--fg-2);max-width:34ch}
+.acciones{display:flex;flex-wrap:wrap;gap:12px}
+.dato-direccion{display:flex;gap:10px;align-items:flex-start;font-weight:700;color:var(--fg-2)}
+.dato-direccion a{text-underline-offset:3px}
+
+.pieza{position:absolute;width:var(--t,46px);fill:var(--c);opacity:.9;pointer-events:none}
+@media (max-width:560px){.pieza.lejos{display:none}}
+
+/* Cinta de frases */
+.cinta-marco{overflow:hidden;padding-block:14px}
+.cinta{background:var(--fg);color:var(--bg);overflow:hidden;padding-block:14px;transform:rotate(-1.4deg);margin-block:8px 0;width:104%;margin-left:-2%}
+.cinta-pista{display:flex;gap:48px;width:max-content;font-family:var(--f-mano);font-size:clamp(1.5rem,3vw,2rem);white-space:nowrap;animation:correr 38s linear infinite}
+.cinta-pista span::after{content:"✦";margin-left:48px;color:var(--ocre);font-size:.8em}
+@keyframes correr{to{transform:translateX(-50%)}}
+
+/* Secciones */
+section{padding-block:clamp(56px,9vw,110px)}
+.cabeza{display:grid;gap:14px;margin-bottom:clamp(28px,5vw,48px);max-width:720px}
+.cabeza p{color:var(--fg-2);font-size:1.12rem;max-width:58ch}
+.antetitulo{font-family:var(--f-mano);font-size:1.6rem;color:var(--turquesa);line-height:1}
+
+/* Bento de servicios */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.servicio{grid-column:span 2;position:relative;overflow:hidden;background:var(--bg-2);border:1px solid var(--linea);border-radius:var(--radio);padding:26px 24px 24px;display:grid;gap:12px;align-content:start;min-width:0;isolation:isolate}
+.servicio.ancho{grid-column:span 3}
+.servicio::after{content:"";position:absolute;z-index:-1;right:-30%;top:-40%;width:85%;aspect-ratio:2.4;background:var(--img-pincel) var(--pos,50% 50%)/360% auto no-repeat;opacity:.5;transform:rotate(-12deg) scale(var(--s,.9));transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s}
+.servicio:hover::after{transform:rotate(-8deg) scale(1.25);opacity:.75}
+.servicio .icono{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--c);color:#1A1A1A}
+.servicio .icono svg{width:28px;height:28px}
+.servicio p{color:var(--fg-2)}
+@media (max-width:900px){.servicio,.servicio.ancho{grid-column:span 3}}
+@media (max-width:600px){.bento{grid-template-columns:1fr}.servicio,.servicio.ancho{grid-column:auto}}
+
+.enfoques{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;align-items:center}
+.enfoques b{font-weight:800;margin-right:4px}
+.chip{border:1.5px dashed var(--linea);border-radius:999px;padding:6px 14px;font-weight:700;font-size:.95rem;background:var(--bg)}
+
+/* Pasos */
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,32px);counter-reset:paso;list-style:none;padding:0;margin:0}
+@media (max-width:760px){.pasos{grid-template-columns:1fr}}
+.paso{display:grid;gap:10px;align-content:start;min-width:0}
+.paso::before{counter-increment:paso;content:counter(paso);font-family:var(--f-mano);font-size:4.2rem;line-height:.8;color:var(--c)}
+.paso p{color:var(--fg-2)}
+
+/* Cobertura */
+.franja{background:var(--bg-2);border-block:1px solid var(--linea)}
+.cobertura{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:700px){.cobertura{grid-template-columns:1fr}}
+.tarjeta{background:var(--bg);border:1px solid var(--linea);border-radius:var(--radio);padding:26px;display:grid;gap:10px;min-width:0}
+.tarjeta .sello{font-family:var(--f-display);font-weight:700;font-size:1.6rem}
+.tarjeta p{color:var(--fg-2)}
+.completar{border:2px dashed var(--coral);background:color-mix(in srgb,var(--coral) 10%,var(--bg));border-radius:14px;padding:12px 16px;font-weight:700;font-size:.95rem;color:var(--fg)}
+
+/* Equipo */
+.equipo{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,56px);align-items:center}
+@media (max-width:820px){.equipo{grid-template-columns:1fr}}
+.equipo .texto{display:grid;gap:16px;min-width:0}
+.equipo .texto p{color:var(--fg-2);max-width:56ch}
+.rompecabezas{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:380px;justify-self:center;width:100%}
+.rompecabezas div{aspect-ratio:1;border-radius:18px;background:var(--c);display:grid;place-items:center;font-family:var(--f-mano);font-size:1.25rem;color:#1A1A1A;text-align:center;line-height:1;padding:6px}
+.rompecabezas div:nth-child(2n){transform:rotate(3deg)}
+.rompecabezas div:nth-child(3n){transform:rotate(-4deg)}
+
+/* Preguntas */
+.preguntas{display:grid;gap:12px;max-width:820px}
+details{background:var(--bg-2);border:1px solid var(--linea);border-radius:18px;padding:4px 22px}
+summary{cursor:pointer;list-style:none;font-family:var(--f-display);font-weight:600;font-size:1.15rem;padding-block:16px;display:flex;justify-content:space-between;gap:16px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:1.6rem;line-height:1;color:var(--turquesa);transition:transform .25s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding-bottom:18px;color:var(--fg-2);max-width:65ch}
+
+/* Contacto */
+.contacto{position:relative;overflow:hidden;isolation:isolate}
+.contacto::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--img-pincel) center/cover no-repeat;opacity:.33}
+.contacto-caja{background:var(--bg);border-radius:30px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,4vw,48px);box-shadow:0 30px 80px -40px #00000055}
+@media (max-width:820px){.contacto-caja{grid-template-columns:1fr}}
+.contacto-caja .texto{display:grid;gap:16px;min-width:0}
+.telefonos{display:grid;gap:12px;align-content:start}
+.tel{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--linea);border-radius:18px;padding:14px 16px;background:var(--bg-2);flex-wrap:wrap}
+.tel strong{font-family:var(--f-display);font-size:1.45rem;font-weight:600;font-variant-numeric:tabular-nums;user-select:all}
+.tel .grupo{display:flex;gap:8px}
+.copiar{font:700 .85rem var(--f-cuerpo);background:transparent;border:1.5px solid var(--linea);color:var(--fg);border-radius:999px;padding:8px 12px;cursor:pointer}
+.direccion{display:grid;gap:6px;padding:16px;border-radius:18px;border:1px solid var(--linea)}
+.direccion b{font-family:var(--f-display);font-size:1.2rem;font-weight:600}
+
+footer{padding-block:36px calc(36px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--linea);color:var(--fg-2);font-size:.95rem}
+footer .envoltura{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+
+/* Botón flotante de WhatsApp */
+.flotante{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:25;width:60px;height:60px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 10px 30px -8px #0008;text-decoration:none}
+.flotante svg{width:30px;height:30px}
+.menu-wa{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(88px + env(safe-area-inset-bottom,0px));z-index:25;background:var(--bg);border:1px solid var(--linea);border-radius:18px;padding:10px;display:grid;gap:6px;box-shadow:0 20px 50px -20px #0007}
+.menu-wa a{text-decoration:none;font-weight:800;padding:10px 14px;border-radius:12px;font-variant-numeric:tabular-nums}
+.menu-wa a:hover{background:var(--bg-2)}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header class="barra">
+  <div class="envoltura">
+    <a class="marca-mini" href="#inicio" aria-label="Sin Límites, inicio">
+      <svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><path fill="#4FB3B0" d="M18 28h20a11 11 0 1 1 22 0h20v20a11 11 0 1 1 0 22v20H60a11 11 0 1 0-22 0H18V70a11 11 0 1 0 0-22z"/></svg>
+      <span>Sin Límites<small>Berazategui</small></span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
+      <a class="enlace" href="#servicios">Servicios</a>
+      <a class="enlace" href="#como-empezar">Cómo empezar</a>
+      <a class="enlace" href="#cobertura">Cobertura</a>
+      <a class="enlace" href="#preguntas">Preguntas</a>
+      <a class="boton boton-wa boton-chico" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <svg class="pieza lejos" style="--c:var(--lila);--t:54px;left:3%;top:30px" viewBox="0 0 100 100" aria-hidden="true" data-flota="18"><path d="M18 28h20a11 11 0 1 1 22 0h20v20a11 11 0 1 1 0 22v20H60a11 11 0 1 0-22 0H18V70a11 11 0 1 0 0-22z"/></svg>
+    <svg class="pieza" style="--c:var(--coral);--t:40px;right:5%;top:18px" viewBox="0 0 100 100" aria-hidden="true" data-flota="-24"><path d="M18 28h20a11 11 0 1 1 22 0h20v20a11 11 0 1 1 0 22v20H60a11 11 0 1 0-22 0H18V70a11 11 0 1 0 0-22z"/></svg>
+    <svg class="pieza lejos" style="--c:var(--ocre);--t:36px;right:42%;bottom:12px" viewBox="0 0 100 100" aria-hidden="true" data-flota="30"><path d="M50 4l10 34 36 12-36 12-10 34-10-34L4 50l36-12z"/></svg>
+    <div class="envoltura hero-grilla">
+      <div class="hoja" id="hoja">
+        <img src="../img/logo.webp" width="1000" height="485" alt="Sin Límites · Espacio Interdisciplinario">
+        <span class="frase">Juntos potenciamos posibilidades</span>
+      </div>
+      <div class="hero-texto">
+        <span class="etiqueta"><i></i>Admisiones 2027 abiertas</span>
+        <h1>Terapias para niños y adolescentes, <em>en Berazategui</em></h1>
+        <p class="bajada">Un equipo interdisciplinario que trabaja junto a cada familia. Atendemos con CUD por obra social o en forma particular.</p>
+        <div class="acciones">
+          <a class="boton boton-wa" href="https://wa.me/5491131429090?text=Hola%2C%20quiero%20consultar%20por%20admisiones%202027" target="_blank" rel="noopener">
+            <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+            Escribinos por WhatsApp
+          </a>
+          <a class="boton boton-borde" href="#servicios">Ver servicios</a>
+        </div>
+        <p class="dato-direccion">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12Z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          <span><a href="https://www.google.com/maps/search/?api=1&amp;query=Calle%20143%201624%2C%20Berazategui%2C%20Buenos%20Aires" target="_blank" rel="noopener">Calle 143 N.º 1624, Berazategui</a> · a 4 cuadras de la estación</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cinta-marco"><div class="cinta" aria-hidden="true">
+    <div class="cinta-pista">
+      <span>Pequeños avances, grandes logros</span><span>Juntos potenciamos posibilidades</span><span>Pequeños avances, grandes logros</span><span>Juntos potenciamos posibilidades</span>
+      <span>Pequeños avances, grandes logros</span><span>Juntos potenciamos posibilidades</span><span>Pequeños avances, grandes logros</span><span>Juntos potenciamos posibilidades</span>
+    </div>
+  </div></div>
+
+  <section id="servicios">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="antetitulo">qué hacemos</span>
+        <h2><span class="pincel" style="--pos:20% 55%">Seis áreas,</span> un mismo plan</h2>
+        <p>Cada profesional mira una parte del desarrollo, y el equipo se pone de acuerdo en los objetivos de cada niño. Así la familia no tiene que coordinar sola entre consultorios.</p>
+      </div>
+      <div class="bento">
+        <article class="servicio ancho" style="--c:var(--rosa);--pos:58% 45%">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></div>
+          <h3>Psicología</h3>
+          <p>Acompañamos emociones, conducta y vínculos, con espacios para el niño y orientación para la familia.</p>
+        </article>
+        <article class="servicio ancho" style="--c:var(--lila);--pos:85% 50%">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></div>
+          <h3>Fonoaudiología</h3>
+          <p>Lenguaje, habla y comunicación: desde las primeras palabras hasta poder contar lo que le pasa.</p>
+        </article>
+        <article class="servicio" style="--c:var(--turquesa);--pos:30% 55%">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></div>
+          <h3>Psicopedagogía</h3>
+          <p>Aprendizaje, atención y la experiencia en la escuela.</p>
+        </article>
+        <article class="servicio" style="--c:var(--ocre);--pos:8% 40%">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 11V6a2 2 0 0 0-4 0v1M14 10V4a2 2 0 0 0-4 0v2M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-6-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg></div>
+          <h3>Terapia Ocupacional</h3>
+          <p>Autonomía en la vida diaria, motricidad y procesamiento sensorial.</p>
+        </article>
+        <article class="servicio" style="--c:var(--celeste);--pos:50% 60%">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg></div>
+          <h3>Evaluación neurocognitiva</h3>
+          <p>Cómo piensa, aprende y procesa información, para planificar el tratamiento con datos.</p>
+        </article>
+        <article class="servicio ancho" style="--c:var(--coral);--pos:70% 55%;grid-column:1 / -1">
+          <div class="icono"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Taller de habilidades sociales <span class="mano" style="color:var(--coral);font-size:1.2em">¡nuevo 2027!</span></h3>
+          <p>En grupo, para niños y adolescentes: jugar, conversar, esperar el turno y hacer amigos, con otros chicos de su edad.</p>
+        </article>
+      </div>
+      <div class="enfoques" aria-label="Enfoques y herramientas">
+        <b>También trabajamos con</b>
+        <span class="chip">Integración sensorial</span>
+        <span class="chip">Perfil sensorial</span>
+        <span class="chip">Terapia cognitivo conductual</span>
+        <span class="chip">Evaluación de TEA con ADOS-2 y ADI-R</span>
+        <span class="chip">Orientación a padres</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-empezar" class="franja">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="antetitulo">cómo empezar</span>
+        <h2><span class="pincel" style="--pos:75% 40%">Tres pasos</span> para la admisión</h2>
+      </div>
+      <ol class="pasos">
+        <li class="paso" style="--c:var(--turquesa)">
+          <h3>Escribinos por WhatsApp</h3>
+          <p>Contanos la edad de tu hijo o hija, qué te preocupa y si tiene CUD. Te respondemos por el mismo medio.</p>
+        </li>
+        <li class="paso" style="--c:var(--coral)">
+          <h3>Entrevista con la familia</h3>
+          <p>Nos conocemos, escuchamos la historia y vemos qué áreas conviene evaluar.</p>
+        </li>
+        <li class="paso" style="--c:var(--lila)">
+          <h3>Plan de trabajo</h3>
+          <p>El equipo arma los objetivos, los días y las terapias, y los revisamos juntos con el tiempo.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="cobertura">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="antetitulo">cobertura</span>
+        <h2>Dos formas de <span class="pincel" style="--pos:40% 60%">atenderse</span></h2>
+      </div>
+      <div class="cobertura">
+        <div class="tarjeta">
+          <span class="sello">Con CUD por obra social</span>
+          <p>Si tu hijo o hija tiene Certificado Único de Discapacidad, gestionamos la atención a través de la obra social.</p>
+          <p class="completar">[COMPLETAR: obras sociales con las que trabajan]</p>
+        </div>
+        <div class="tarjeta">
+          <span class="sello">En forma particular</span>
+          <p>Sin CUD o mientras se tramita, también podés atenderte de forma particular. Consultanos por WhatsApp los valores.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="equipo" class="franja">
+    <div class="envoltura equipo">
+      <div class="texto">
+        <span class="antetitulo">el espacio</span>
+        <h2>Un equipo que <span class="pincel" style="--pos:15% 50%">se habla</span></h2>
+        <p>Psicólogas, fonoaudiólogas, psicopedagogas y terapistas ocupacionales en un mismo lugar, en el centro de Berazategui. Compartimos lo que cada uno ve para que cada niño avance a su ritmo.</p>
+        <p class="completar">[COMPLETAR: nombres, profesiones y matrículas del equipo; fotos reales del espacio con permiso]</p>
+      </div>
+      <div class="rompecabezas" aria-hidden="true">
+        <div style="--c:var(--rosa)">psico</div>
+        <div style="--c:var(--lila)">fono</div>
+        <div style="--c:var(--turquesa)">psico­pedagogía</div>
+        <div style="--c:var(--ocre)">T.O.</div>
+        <div style="--c:var(--coral)">familia</div>
+        <div style="--c:var(--celeste)">escuela</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="preguntas">
+    <div class="envoltura">
+      <div class="cabeza">
+        <span class="antetitulo">preguntas frecuentes</span>
+        <h2>Lo que más <span class="pincel" style="--pos:60% 45%">nos consultan</span></h2>
+      </div>
+      <div class="preguntas">
+        <details open>
+          <summary>¿Dónde quedan?</summary>
+          <p>En Calle 143 N.º 1624, Berazategui, a 4 cuadras de la estación de tren.</p>
+        </details>
+        <details>
+          <summary>¿Atienden con obra social?</summary>
+          <p>Sí. Atendemos niños y adolescentes con CUD a través de la obra social, y también en forma particular.</p>
+        </details>
+        <details>
+          <summary>¿Qué edades atienden?</summary>
+          <p>Niños y adolescentes. Si tenés dudas sobre una edad puntual, escribinos y lo vemos.</p>
+        </details>
+        <details>
+          <summary>¿Hace falta un diagnóstico para empezar?</summary>
+          <p>No. Podés consultar por una preocupación en el desarrollo, el lenguaje o la escuela. Si hace falta, hacemos la evaluación en el espacio.</p>
+        </details>
+        <details>
+          <summary>¿Cómo pido una entrevista de admisión?</summary>
+          <p>Por WhatsApp, a cualquiera de los dos números: 11 3142-9090 o 11 6025-9276.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <div class="envoltura">
+      <div class="contacto-caja">
+        <div class="texto">
+          <span class="antetitulo">contacto</span>
+          <h2>Pequeños avances, <span class="mano" style="color:var(--coral);font-size:1.15em">grandes logros</span></h2>
+          <p style="color:var(--fg-2)">Escribinos y coordinamos una entrevista. Respondemos por WhatsApp.</p>
+          <div class="direccion">
+            <b>Calle 143 N.º 1624, Berazategui</b>
+            <span style="color:var(--fg-2)">A 4 cuadras de la estación · <a href="https://www.google.com/maps/search/?api=1&amp;query=Calle%20143%201624%2C%20Berazategui%2C%20Buenos%20Aires" target="_blank" rel="noopener">Cómo llegar</a></span>
+          </div>
+        </div>
+        <div class="telefonos">
+          <div class="tel">
+            <strong>11 3142-9090</strong>
+            <span class="grupo">
+              <button class="copiar" type="button" data-copiar="11 3142-9090">Copiar</button>
+              <a class="boton boton-wa boton-chico" href="https://wa.me/5491131429090?text=Hola%2C%20quiero%20consultar%20por%20admisiones%202027" target="_blank" rel="noopener">WhatsApp</a>
+            </span>
+          </div>
+          <div class="tel">
+            <strong>11 6025-9276</strong>
+            <span class="grupo">
+              <button class="copiar" type="button" data-copiar="11 6025-9276">Copiar</button>
+              <a class="boton boton-wa boton-chico" href="https://wa.me/5491160259276?text=Hola%2C%20quiero%20consultar%20por%20admisiones%202027" target="_blank" rel="noopener">WhatsApp</a>
+            </span>
+          </div>
+          <a class="boton boton-borde" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener" style="justify-content:center">Seguinos en Instagram @sinlimitesterapias</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="envoltura">
+    <span>Sin Límites · Espacio Interdisciplinario · Berazategui</span>
+    <span>WhatsApp 11 3142-9090 · 11 6025-9276</span>
+  </div>
+</footer>
+
+<a class="flotante" href="#contacto" id="flotante" aria-label="Escribinos por WhatsApp" aria-expanded="false" aria-controls="menu-wa">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+<div class="menu-wa" id="menu-wa" hidden>
+  <a href="https://wa.me/5491131429090?text=Hola%2C%20quiero%20consultar%20por%20admisiones%202027" target="_blank" rel="noopener">11 3142-9090</a>
+  <a href="https://wa.me/5491160259276?text=Hola%2C%20quiero%20consultar%20por%20admisiones%202027" target="_blank" rel="noopener">11 6025-9276</a>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+
+// Copiar teléfonos
+document.querySelectorAll('[data-copiar]').forEach(function(b){
+  b.addEventListener('click',function(){
+    var t=b.getAttribute('data-copiar');
+    var ok=function(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar'},1600)};
+    var seleccionar=function(){var s=b.closest('.tel').querySelector('strong');var r=document.createRange();r.selectNodeContents(s);var sel=getSelection();sel.removeAllRanges();sel.addRange(r);b.textContent='Seleccionado'};
+    try{navigator.clipboard.writeText(t).then(ok,seleccionar)}catch(e){seleccionar()}
+  });
+});
+
+// Botón flotante: elige entre los dos números
+var fl=document.getElementById('flotante'),menu=document.getElementById('menu-wa');
+fl.addEventListener('click',function(e){e.preventDefault();var abierto=menu.hidden;menu.hidden=!abierto;fl.setAttribute('aria-expanded',String(abierto))});
+document.addEventListener('click',function(e){if(!menu.hidden&&!menu.contains(e.target)&&!fl.contains(e.target)){menu.hidden=true;fl.setAttribute('aria-expanded','false')}});
+
+// Movimiento (solo si la persona no lo desactivó)
+var quieto=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(window.gsap && !quieto){
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.from('#hoja img',{clipPath:'inset(0 100% 0 0)',duration:1.4,ease:'power3.inOut',delay:.15});
+  gsap.from('#hoja .frase',{scale:.6,rotate:-14,opacity:0,duration:.7,ease:'back.out(2)',delay:1.2});
+  gsap.from('.hero-texto > *',{y:18,opacity:0,stagger:.08,duration:.6,ease:'power2.out',delay:.3});
+  document.querySelectorAll('[data-flota]').forEach(function(p){
+    gsap.to(p,{y:+p.dataset.flota*3,rotate:+p.dataset.flota,ease:'none',scrollTrigger:{trigger:document.body,start:'top top',end:'bottom bottom',scrub:1}});
+  });
+  gsap.utils.toArray('.servicio, .paso, .tarjeta, details').forEach(function(el){
+    gsap.from(el,{y:26,duration:.7,ease:'power2.out',scrollTrigger:{trigger:el,start:'top 92%',once:true}});
+  });
+}
+</script>
+</body>
+</html>

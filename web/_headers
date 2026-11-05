@@ -1,0 +1,13 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+/a/*
+  X-Robots-Tag: noindex
+/b/*
+  X-Robots-Tag: noindex
+/c/*
+  X-Robots-Tag: noindex
+/d/*
+  X-Robots-Tag: noindex
+/img/*
+  Cache-Control: public, max-age=604800

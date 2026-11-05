@@ -1,9 +1,10 @@
 # Web de Sin Límites
 
-Página estática (un solo `index.html` + `img/`). Se publica en Cloudflare Pages desde la carpeta `web/` de `main`.
+Página estática que se publica en Cloudflare Pages desde la carpeta `web/` de `main`, en https://sinlimitesterapias.com.ar.
 
-- Estilo: cuaderno de acuarela. Papel claro, tinta negra del logo, títulos sobre la pincelada pastel de la marca.
-- Fuentes (Google Fonts): Fredoka (títulos), Nunito (texto), Caveat (frases a mano).
-- Colores: ocre #E3A93B, turquesa #4FB3B0, celeste #7DB9E0, coral #EE8577, rosa #F2B3C1, lila #B3A0DE, tinta #1A1A1A, papel #FBF9F4.
-- Imágenes: `img/logo.webp` (logo oficial), `img/pincelada.webp` (pincelada con transparencia), `img/compartir.jpg` (vista al compartir por WhatsApp).
-- Pendientes marcados en la página como `[COMPLETAR: …]`.
+- `index.html`: la web publicada (versión D: opción C + orientador "¿Qué te preocupa hoy?" + fondo blanco con manchas de pintura del logo + 2 coordinadoras).
+- `d/`: la misma versión D con rutas `../img/` (copia de trabajo). Si se edita `d/index.html`, regenerar la raíz cambiando `../img/` por `img/`.
+- `a/`, `b/`, `c/`: opciones anteriores, solo como referencia (no se indexan; ver `_headers`).
+- `img/`: logo oficial, pincelada, manchas (`mancha-1..4.webp`) e imagen para compartir.
+- Fuentes (Google Fonts): Schibsted Grotesk (títulos) y Hanken Grotesk (texto). Color principal petróleo #14393F; pasteles de la marca para cada área.
+- Pendientes marcados en la página como `[COMPLETAR: …]`: historia del espacio, obras sociales con convenio y fotos de las coordinadoras.
