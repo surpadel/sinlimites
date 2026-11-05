@@ -97,7 +97,7 @@ section{position:relative}
 .datos{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--linea)}
 .datos li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:12px;padding-block:12px;border-bottom:1px solid var(--linea);font-size:.97rem}
 .datos li span:first-child{color:var(--fg-2)}
-.datos li span:last-child{font-weight:600}
+.datos li span:last-child{font-weight:600;min-width:0;overflow-wrap:anywhere}
 
 /* Franja */
 .franja{position:relative;z-index:1}
@@ -144,6 +144,37 @@ section{padding-block:clamp(64px,9vw,120px)}
 .wa-flot .menu a span{color:var(--wa)}
 @media (max-width:520px){.wa-flot .abrir .txt{display:none}.wa-flot .abrir{padding:15px}}
 footer{padding-bottom:calc(96px + env(safe-area-inset-bottom,0px))!important}
+
+/* Banner admisiones */
+.admis{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:12px 20px;flex-wrap:wrap;text-decoration:none;color:#1A1A1A;overflow:hidden;padding-block:16px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1px solid var(--linea);background:#FFFFFF}
+.admis-pint{position:absolute;inset:0;display:flex;width:300%;animation:admis-pasa 26s linear infinite;pointer-events:none}
+.admis-pint img{width:33.333%;height:100%;object-fit:cover;opacity:.7;transform:scaleY(1.6)}
+.admis-pint img:nth-child(2){transform:scaleY(1.6) scaleX(-1)}
+@keyframes admis-pasa{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}
+.admis::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#FFFFFFD9 0%,#FFFFFF8C 45%,#FFFFFF33 100%);pointer-events:none}
+.admis-txt,.admis-cta{position:relative;z-index:1}
+.admis-txt{display:flex;align-items:center;gap:6px 12px;flex-wrap:wrap;max-width:1180px}
+.admis-txt b{font-family:var(--f-titulo);font-weight:700;font-size:clamp(1.15rem,2.4vw,1.45rem);letter-spacing:-.02em}
+.admis-sub{color:#33434B;font-weight:500}
+.admis-txt i{width:11px;height:11px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 0 #1C7D5080;animation:admis-late 1.8s ease-out infinite;flex:none}
+@keyframes admis-late{0%{box-shadow:0 0 0 0 #1C7D5099}100%{box-shadow:0 0 0 12px #1C7D5000}}
+.admis-cta{background:var(--petroleo);color:var(--petroleo-fg);border-radius:999px;padding:11px 18px;font-weight:600;font-size:.95rem;white-space:nowrap;transition:transform .2s}
+.admis:hover .admis-cta{transform:translateX(3px)}
+.admis:focus-visible{outline:2px solid var(--petroleo);outline-offset:-4px}
+@media (max-width:560px){.admis-sub{display:none}}
+@media (prefers-reduced-motion:reduce){.admis-pint,.admis-txt i{animation:none}}
+
+/* Recomendar */
+.recom-sec{padding-block:0 clamp(48px,7vw,88px)}
+.recom{position:relative;background:var(--sup);border:1px solid var(--linea);border-radius:28px;padding:clamp(24px,4vw,48px);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:16px clamp(24px,4vw,56px);align-items:center;box-shadow:0 24px 48px -32px #14393F55;overflow:hidden}
+.recom::before{content:"";position:absolute;inset:0 0 auto;height:6px;background:linear-gradient(90deg,var(--a-ocre),var(--a-coral),var(--a-rosa),var(--a-lila),var(--a-celeste),var(--a-turq))}
+@media (max-width:860px){.recom{grid-template-columns:1fr}}
+.recom-txt{display:grid;gap:10px;min-width:0}
+.recom-txt h2{font-size:clamp(1.6rem,3vw,2.2rem)}
+.recom-txt p{color:var(--fg-2)}
+.recom-btns{display:flex;flex-wrap:wrap;gap:10px}
+.recom-btns .btn .ico{width:20px;height:20px}
+.recom-nota{grid-column:1/-1;font-size:.9rem;color:var(--fg-2);border-top:1px solid var(--linea);padding-top:14px}
 
 /* Orientador */
 .ori{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
@@ -287,6 +318,11 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 
 <main id="inicio">
   <div class="pintado">
+    <a class="admis" href="#contacto" aria-label="Admisiones 2027 abiertas. Solicitá una entrevista">
+      <span class="admis-pint" aria-hidden="true"><img src="../img/pincelada.webp" alt=""><img src="../img/pincelada.webp" alt=""><img src="../img/pincelada.webp" alt=""></span>
+      <span class="admis-txt"><i aria-hidden="true"></i><b>Admisiones 2027 abiertas</b><span class="admis-sub">Reservá la entrevista para el próximo año</span></span>
+      <span class="admis-cta">Solicitar entrevista <span aria-hidden="true">→</span></span>
+    </a>
     <img class="mancha" src="../img/mancha-1.webp" alt="" style="--o:.42;opacity:var(--o);width:min(1250px,150vw);right:-22vw;top:-40px;transform:rotate(-4deg)">
     <img class="mancha" src="../img/mancha-4.webp" alt="" style="--o:.35;opacity:var(--o);width:300px;left:-110px;bottom:40px">
     <svg class="deco pieza" style="left:6%;top:30px;fill:var(--a-lila);opacity:.75" aria-hidden="true"><use href="#pz"/></svg>
@@ -484,6 +520,25 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
       </div>
     </section>
 
+    <section id="recomendar" class="recom-sec">
+      <div class="env">
+        <div class="recom">
+          <div class="recom-txt">
+            <span class="ceja">Recomendanos</span>
+            <h2>¿Conocés a una familia que lo necesite?</h2>
+            <p>Compartí la web con quien pueda servirle. Una recomendación a tiempo ayuda mucho.</p>
+          </div>
+          <div class="recom-btns">
+            <button class="btn prim" type="button" id="compartir-nativo" hidden><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>Compartir</button>
+            <a class="btn wa" href="https://wa.me/?text=Te%20recomiendo%20Sin%20L%C3%ADmites%2C%20espacio%20interdisciplinario%20para%20ni%C3%B1os%20y%20adolescentes%20en%20Berazategui%3A%20https%3A//sinlimitesterapias.com.ar/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3Z"/></svg>WhatsApp</a>
+            <a class="btn sec" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsinlimitesterapias.com.ar%2F" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21Z"/></svg>Facebook</a>
+            <button class="btn sec" type="button" id="copiar-link"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg><span>Copiar link</span></button>
+          </div>
+          <p class="recom-nota">Para Instagram: copiá el link y pegalo en tu historia con el sticker de enlace.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="contacto" class="contacto" style="padding-top:0">
       <img class="mancha" src="../img/mancha-1.webp" alt="" style="--o:.4;opacity:var(--o);width:min(1200px,160vw);left:50%;bottom:-120px;transform:translateX(-50%) rotate(-6deg)">
       <div class="env">
@@ -515,7 +570,7 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
   </div>
 </main>
 
-<footer><div class="env"><span>Sin Límites · Espacio Interdisciplinario · Juntos potenciamos habilidades</span><span>WhatsApp 11 3142-9090 · 11 6025-9276 · <a class="ig-txt" href="mailto:consultas@sinlimitesterapias.com.ar">consultas@sinlimitesterapias.com.ar</a> · <a class="ig-txt" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">Instagram @sinlimitesterapias</a></span></div></footer>
+<footer><div class="env"><span>Sin Límites · Espacio Interdisciplinario · Juntos potenciamos habilidades</span><span>WhatsApp 11 3142-9090 · 11 6025-9276 · <a class="ig-txt" href="mailto:consultas@sinlimitesterapias.com.ar">consultas@sinlimitesterapias.com.ar</a> · <a class="ig-txt" href="#recomendar">Recomendanos</a> · <a class="ig-txt" href="https://www.instagram.com/sinlimitesterapias/" target="_blank" rel="noopener">Instagram @sinlimitesterapias</a></span></div></footer>
 
 <div class="wa-flot" id="wa-flot">
   <div class="menu" id="wa-menu" hidden>
@@ -530,6 +585,12 @@ footer .env{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 var barra=document.getElementById('barra');
+var LINK='https://sinlimitesterapias.com.ar/', TEXTO='Te recomiendo Sin Límites, espacio interdisciplinario para niños y adolescentes en Berazategui: ';
+var bN=document.getElementById('compartir-nativo');
+if(navigator.share){bN.hidden=false;bN.addEventListener('click',function(){navigator.share({title:'Sin Límites · Espacio Interdisciplinario',text:TEXTO,url:LINK}).catch(function(){})})}
+var bC=document.getElementById('copiar-link');
+bC.addEventListener('click',function(){var s=bC.querySelector('span');var ok=function(){s.textContent='Link copiado';setTimeout(function(){s.textContent='Copiar link'},1800)};
+  try{navigator.clipboard.writeText(LINK).then(ok,function(){s.textContent=LINK})}catch(e){s.textContent=LINK}});
 var waB=document.getElementById('wa-abrir'),waM=document.getElementById('wa-menu');
 waB.addEventListener('click',function(e){e.stopPropagation();waM.hidden=!waM.hidden;waB.setAttribute('aria-expanded',String(!waM.hidden))});
 document.addEventListener('click',function(e){if(!waM.hidden&&!document.getElementById('wa-flot').contains(e.target)){waM.hidden=true;waB.setAttribute('aria-expanded','false')}});
